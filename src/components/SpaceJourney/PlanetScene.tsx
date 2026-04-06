@@ -17,6 +17,7 @@ interface Experience {
   cloudSpeed: string;
   cloudDirection: string;
   blendMode: string;
+  type: string;
   order: number;
 }
 

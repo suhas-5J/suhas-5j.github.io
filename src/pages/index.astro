@@ -21,7 +21,8 @@ const experiences = [
     baseSpeed: "100s",
     cloudSpeed: "60s",
     cloudDirection: "reverse",
-    blendMode: "overlay"
+    blendMode: "overlay",
+    type: "planet"
   },
   {
     order: 2,
@@ -37,7 +38,8 @@ const experiences = [
     baseSpeed: "150s",
     cloudSpeed: "90s",
     cloudDirection: "normal",
-    blendMode: "overlay"
+    blendMode: "overlay",
+    type: "planet"
   },
   {
     order: 3,
@@ -53,7 +55,8 @@ const experiences = [
     baseSpeed: "120s",
     cloudSpeed: "80s",
     cloudDirection: "reverse",
-    blendMode: "multiply"
+    blendMode: "multiply",
+    type: "planet"
   },
   {
     order: 4,
@@ -69,7 +72,8 @@ const experiences = [
     baseSpeed: "80s",
     cloudSpeed: "40s",
     cloudDirection: "normal",
-    blendMode: "overlay"
+    blendMode: "overlay",
+    type: "planet"
   },
   {
     order: 5,
@@ -85,12 +89,13 @@ const experiences = [
     baseSpeed: "200s",
     cloudSpeed: "100s",
     cloudDirection: "reverse",
-    blendMode: "color-burn"
+    blendMode: "color-burn",
+    type: "planet"
   }
 ];
 ---
 
-<Layout title="Knowledge Orbit | Suhas - Interstellar Odyssey">
+<Layout title="Knowledge Orbit | Suhas - Interstellar Odyssey" hideNav={true}>
   <!-- Immersive Background Layers -->
   <Starfield client:load />
   <MeteoriteField client:load />

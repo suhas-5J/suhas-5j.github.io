@@ -4,7 +4,7 @@ import { motion, AnimatePresence, useScroll, useVelocity, useSpring, useTransfor
 import { AudioEngine } from './AudioEngine';
 
 export const CockpitHUD: React.FC = () => {
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isSystemOnline, setIsSystemOnline] = useState(false);

@@ -4,9 +4,10 @@ import '../styles/global.css';
 interface Props {
 	title: string;
 	description?: string;
+	hideNav?: boolean;
 }
 
-const { title, description = "The Knowledge Orbit - A Portfolio Journey through Finance and Education" } = Astro.props;
+const { title, description = "The Knowledge Orbit - A Portfolio Journey through Finance and Education", hideNav = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -23,6 +24,7 @@ const { title, description = "The Knowledge Orbit - A Portfolio Journey through 
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 	</head>
 	<body class="bg-space-bg text-gray-100 min-h-screen font-sans selection:bg-primary-finance/30">
+		{!hideNav && (
 		<header class="fixed top-0 left-0 w-full z-50 bg-space-bg/80 backdrop-blur-md border-b border-space-border">
 			<nav class="container mx-auto px-6 py-4 flex justify-between items-center">
 				<a href="/" class="text-2xl font-bold font-space bg-gradient-to-r from-primary-finance to-primary-edu bg-clip-text text-transparent">
@@ -44,9 +46,11 @@ const { title, description = "The Knowledge Orbit - A Portfolio Journey through 
 				</div>
 			</nav>
 		</header>
-		<main class="pt-16">
+		)}
+		<main class={hideNav ? "" : "pt-16"}>
 			<slot />
 		</main>
+		{!hideNav && (
 		<footer class="bg-space-card py-12 border-t border-space-border">
 			<div class="container mx-auto px-6 text-center">
 				<p class="text-gray-400 text-sm">
@@ -54,6 +58,7 @@ const { title, description = "The Knowledge Orbit - A Portfolio Journey through 
 				</p>
 			</div>
 		</footer>
+		)}
 	</body>
 </html>
 
