@@ -1,0 +1,46 @@
+---
+import { ArrowRight, TrendingUp, BookOpen } from 'lucide-react';
+---
+
+<section id="hero" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-24 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.05)_0%,rgba(3,7,18,1)_100%)]">
+	<div class="container mx-auto px-6 relative z-10">
+		<div class="max-w-4xl mx-auto text-center">
+			<div class="inline-flex items-center px-4 py-2 rounded-full bg-primary-finance/10 border border-primary-finance/20 text-primary-finance mb-8 animate-fade-in">
+				<TrendingUp className="w-4 h-4 mr-2" />
+				<span class="text-sm font-medium tracking-wide uppercase">Finance Expert & Educator</span>
+			</div>
+			
+			<h1 class="text-5xl md:text-7xl lg:text-8xl font-bold font-space leading-tight mb-8">
+				Exploring the <span class="bg-gradient-to-r from-primary-finance to-primary-edu bg-clip-text text-transparent">Knowledge Orbit</span>
+			</h1>
+			
+			<p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+				Blending precision in financial modeling with a passion for guiding health and social consciousness. 
+			</p>
+			
+			<div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+				<a href="#journey" class="group px-8 py-4 bg-primary-finance hover:bg-emerald-600 text-white font-bold rounded-lg transition-all flex items-center shadow-lg shadow-emerald-500/20">
+					Launch My Journey
+					<ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+				</a>
+				<a href="#lab" class="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold rounded-lg transition-all flex items-center">
+					Visit The Lab
+				</a>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Background decorations -->
+	<div class="absolute top-1/4 left-10 w-64 h-64 bg-primary-finance/5 rounded-full blur-[100px]"></div>
+	<div class="absolute bottom-1/4 right-10 w-64 h-64 bg-primary-edu/5 rounded-full blur-[100px]"></div>
+</section>
+
+<style>
+	@keyframes fade-in {
+		from { opacity: 0; transform: translateY(20px); }
+		to { opacity: 1; transform: translateY(0); }
+	}
+	.animate-fade-in {
+		animation: fade-in 1s ease-out forwards;
+	}
+</style>

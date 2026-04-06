@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { BookOpen } from 'lucide-react';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Layout title="The Journal | Knowledge Orbit">
+	<div class="py-24 bg-space-bg">
+		<div class="container mx-auto px-6">
+			<div class="max-w-4xl mx-auto">
+				<header class="mb-16">
+					<h1 class="text-5xl md:text-6xl font-bold font-space mb-6 italic">The Journal</h1>
+					<p class="text-xl text-gray-400 italic">Exploring the intersection of health, society, and growth.</p>
+				</header>
+				
+				<div class="grid gap-12">
+					{posts.map((post) => (
+						<article class="group relative bg-space-card p-8 rounded-2xl border border-space-border hover:border-primary-edu transition-all italic">
+							<div class="flex flex-col md:flex-row gap-8">
+								<div class="md:w-1/4">
+									<div class="aspect-square bg-primary-edu/10 rounded-xl flex items-center justify-center italic">
+										<BookOpen className="w-12 h-12 text-primary-edu opacity-50" />
+									</div>
+								</div>
+								<div class="md:w-3/4 flex flex-col justify-center italic">
+									<div class="flex items-center gap-4 mb-2 italic">
+										<span class="text-xs font-bold text-primary-edu uppercase tracking-widest italic">{post.data.category}</span>
+										<span class="text-gray-500 text-xs italic">{post.data.pubDate.toLocaleDateString()}</span>
+									</div>
+									<h2 class="text-3xl font-bold font-space group-hover:text-primary-edu transition-colors italic">
+										<a href={`/journal/${post.id}`}>
+											{post.data.title}
+										</a>
+									</h2>
+									<p class="text-gray-400 mt-4 italic">{post.data.description}</p>
+									<a href={`/journal/${post.id}`} class="mt-6 text-primary-edu font-bold flex items-center italic">
+										Read Entry <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+									</a>
+								</div>
+							</div>
+						</article>
+					))}
+				</div>
+			</div>
+		</div>
+	</div>
+</Layout>

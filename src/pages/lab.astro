@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Starfield } from '../components/SpaceJourney/Starfield';
+import { TrendingUp, Cpu, MessageSquare, ArrowRight, Zap, Target } from 'lucide-react';
+---
+
+<Layout title="The Lab | Finance & Tech Models">
+   <Starfield client:load />
+   <div class="scanline" />
+
+   <div class="relative z-10 py-32 min-h-screen">
+      <div class="container mx-auto px-6">
+         <header class="max-w-4xl mb-24 italic">
+            <a href="/" class="text-primary-finance text-xs font-bold uppercase tracking-[0.4em] mb-4 inline-block hover:translate-x-[-10px] transition-transform italic">
+               ← Back to Orbit
+            </a>
+            <h1 class="text-6xl md:text-8xl font-bold font-space text-white tracking-tighter italic">
+               The Research <span class="text-primary-finance italic">Lab</span>
+            </h1>
+            <p class="text-2xl text-white/40 mt-8 italic max-w-2xl leading-relaxed">
+               Where high-finance meets technical precision. Exploring interactive models for ROI, risk, and algorithmic strategies.
+            </p>
+         </header>
+
+         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            {/* Model Card 1 */}
+            <div class="group relative p-10 bg-black/40 backdrop-blur-2xl border border-white/5 hover:border-primary-finance/50 rounded-2xl transition-all hover:shadow-[0_0_50px_rgba(16,185,129,0.1)] italic">
+               <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-100 transition-opacity italic">
+                  <TrendingUp className="w-16 h-16 text-primary-finance italic" />
+               </div>
+               <div class="w-12 h-12 bg-primary-finance/10 text-primary-finance rounded-xl flex items-center justify-center mb-8 italic">
+                  <Zap className="w-6 h-6 italic" />
+               </div>
+               <h3 class="text-3xl font-bold font-space text-white mb-6 italic">ROI Forecaster</h3>
+               <p class="text-white/40 mb-10 leading-relaxed italic">
+                  A high-fidelity interactive model to visualize potential returns across diverse investment portfolios with dynamic risk-adjustment parameters.
+               </p>
+               <button class="px-6 py-3 bg-primary-finance/10 text-primary-finance border border-primary-finance/30 rounded-lg font-bold flex items-center gap-3 group-hover:bg-primary-finance group-hover:text-white transition-all italic">
+                  Open Model <ArrowRight className="w-4 h-4 italic" />
+               </button>
+            </div>
+
+            {/* Model Card 2 */}
+            <div class="group relative p-10 bg-black/40 backdrop-blur-2xl border border-white/5 hover:border-primary-finance/50 rounded-2xl transition-all hover:shadow-[0_0_50px_rgba(16,185,129,0.1)] italic">
+               <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-100 transition-opacity italic">
+                  <Cpu className="w-16 h-16 text-primary-finance italic" />
+               </div>
+               <div class="w-12 h-12 bg-primary-finance/10 text-primary-finance rounded-xl flex items-center justify-center mb-8 italic">
+                  <Target className="w-6 h-6 italic" />
+               </div>
+               <h3 class="text-3xl font-bold font-space text-white mb-6 italic">Quant Stack</h3>
+               <p class="text-white/40 mb-10 leading-relaxed italic">
+                  Mapping technical expertise in Python, React, and AWS for high-scale financial data processing. Architecture logs and performance benchmarks.
+               </p>
+               <button class="px-6 py-3 bg-primary-finance/10 text-primary-finance border border-primary-finance/30 rounded-lg font-bold flex items-center gap-3 group-hover:bg-primary-finance group-hover:text-white transition-all italic">
+                  View Tech Stack <ArrowRight className="w-4 h-4 italic" />
+               </button>
+            </div>
+
+            {/* Model Card 3 */}
+            <div class="group relative p-10 bg-black/40 backdrop-blur-2xl border border-white/5 hover:border-primary-finance/50 rounded-2xl transition-all hover:shadow-[0_0_50px_rgba(16,185,129,0.1)] italic">
+               <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-100 transition-opacity italic">
+                  <MessageSquare className="w-16 h-16 text-primary-finance italic" />
+               </div>
+               <div class="w-12 h-12 bg-primary-finance/10 text-primary-finance rounded-xl flex items-center justify-center mb-8 italic">
+                  <TrendingUp className="w-6 h-6 italic" />
+               </div>
+               <h3 class="text-3xl font-bold font-space text-white mb-6 italic">Risk Matrix</h3>
+               <p class="text-white/40 mb-10 leading-relaxed italic">
+                  A comprehensive qualitative framework for evaluating market risk and socio-economic impact in modern finance and education.
+               </p>
+               <button class="px-6 py-3 bg-primary-finance/10 text-primary-finance border border-primary-finance/30 rounded-lg font-bold flex items-center gap-3 group-hover:bg-primary-finance group-hover:text-white transition-all italic">
+                  Explore Matrix <ArrowRight className="w-4 h-4 italic" />
+               </button>
+            </div>
+         </div>
+      </div>
+   </div>
+</Layout>
+
+<style is:global>
+   body {
+      background-color: #000;
+      cursor: crosshair;
+   }
+</style>
