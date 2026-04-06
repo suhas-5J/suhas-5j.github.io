@@ -9,14 +9,14 @@ import { PlanetScene } from '../components/SpaceJourney/PlanetScene';
 const experiences = [
   {
     order: 1,
-    title: "Financial Foundations",
+    title: "The Launch",
     company: "Capital Growth Partners",
     date: "2018 - 2020",
     location: "Mumbai",
     description: "Architected complex derivative models for private equity portfolios, achieving 15% efficiency gain in risk reporting.",
-    planetColor: "#10b981", // Emerald
-    planetTexture: "https://www.transparenttextures.com/patterns/black-mamba.png",
-    atmosphereColor: "#10b981",
+    planetColor: "#c1440e", // Mars Red
+    planetTexture: "https://www.transparenttextures.com/patterns/sandpaper.png",
+    atmosphereColor: "#e77d11",
     atmosphereTexture: "https://www.transparenttextures.com/patterns/stardust.png",
     baseSpeed: "100s",
     cloudSpeed: "60s",
@@ -30,14 +30,14 @@ const experiences = [
     date: "2020 - 2022",
     location: "Remote",
     description: "Bridged the gap between high-finance and accessible education by building interactive learning platforms for aspiring traders.",
-    planetColor: "#34d399", // Emerald Light
-    planetTexture: "https://www.transparenttextures.com/patterns/concrete-wall.png",
-    atmosphereColor: "#34d399",
+    planetColor: "#2b65ec", // Earth Blue
+    planetTexture: "https://www.transparenttextures.com/patterns/black-scales.png",
+    atmosphereColor: "#10b981", // Earth Green
     atmosphereTexture: "https://www.transparenttextures.com/patterns/noisy-net.png",
     baseSpeed: "150s",
     cloudSpeed: "90s",
     cloudDirection: "normal",
-    blendMode: "multiply"
+    blendMode: "overlay"
   },
   {
     order: 3,
@@ -46,14 +46,14 @@ const experiences = [
     date: "2022 - 2023",
     location: "Global",
     description: "Guided over 10,000 students on financial literacy and wellness through personalized digital coaching and interactive content.",
-    planetColor: "#fb923c", // Orange
-    planetTexture: "https://www.transparenttextures.com/patterns/black-scales.png",
-    atmosphereColor: "#fb923c",
+    planetColor: "#e6b041", // Venus Yellow/Orange
+    planetTexture: "https://www.transparenttextures.com/patterns/concrete-wall.png",
+    atmosphereColor: "#e68441",
     atmosphereTexture: "https://www.transparenttextures.com/patterns/dust.png",
     baseSpeed: "120s",
     cloudSpeed: "80s",
     cloudDirection: "reverse",
-    blendMode: "overlay"
+    blendMode: "multiply"
   },
   {
     order: 4,
@@ -62,14 +62,14 @@ const experiences = [
     date: "2023 - 2024",
     location: "Global",
     description: "Spearheaded digital campaigns addressing social issues and health awareness, impacting thousands of lives globally.",
-    planetColor: "#f87171", // Red
-    planetTexture: "https://www.transparenttextures.com/patterns/sandpaper.png",
-    atmosphereColor: "#f87171",
+    planetColor: "#888888", // Mercury Grey
+    planetTexture: "https://www.transparenttextures.com/patterns/rocky-wall.png",
+    atmosphereColor: "#555555",
     atmosphereTexture: "https://www.transparenttextures.com/patterns/stardust.png",
     baseSpeed: "80s",
     cloudSpeed: "40s",
     cloudDirection: "normal",
-    blendMode: "color-burn"
+    blendMode: "overlay"
   },
   {
     order: 5,
@@ -78,14 +78,14 @@ const experiences = [
     date: "2024 - Present",
     location: "Global",
     description: "Building an integrated ecosystem for personal development, combining finance expertise with social and health guidance.",
-    planetColor: "#6366f1", // Indigo
-    planetTexture: "https://www.transparenttextures.com/patterns/rocky-wall.png",
-    atmosphereColor: "#6366f1",
-    atmosphereTexture: "https://www.transparenttextures.com/patterns/crissXcross.png",
+    planetColor: "#ffcc00", // Sun Yellow
+    planetTexture: "https://www.transparenttextures.com/patterns/noisy-net.png",
+    atmosphereColor: "#ff9900", // Sun Orange
+    atmosphereTexture: "https://www.transparenttextures.com/patterns/stardust.png",
     baseSpeed: "200s",
     cloudSpeed: "100s",
     cloudDirection: "reverse",
-    blendMode: "overlay"
+    blendMode: "color-burn"
   }
 ];
 ---
@@ -111,29 +111,39 @@ const experiences = [
 
     <!-- Final Call to Action -->
     <section class="min-h-screen flex items-center justify-center relative z-20 bg-black/90 backdrop-blur-3xl italic">
-      <div class="text-center max-w-6xl px-8 italic">
+      <div class="text-center max-w-6xl px-8 w-full italic">
          <div class="inline-block px-6 py-2 bg-primary-finance/10 border border-primary-finance/30 rounded-full mb-12 animate-pulse italic">
-            <span class="text-[10px] font-space tracking-[0.5em] text-primary-finance uppercase italic">Mission Complete</span>
-         </div>
-         <h2 class="text-6xl md:text-9xl font-bold font-space mb-12 bg-gradient-to-r from-primary-finance to-primary-edu bg-clip-text text-transparent tracking-tighter italic">
-           Establish Contact.
-         </h2>
-         <p class="text-2xl md:text-3xl text-white/40 mb-16 max-w-2xl mx-auto italic leading-relaxed">
-           Ready to start a new orbit? Reach out for financial consulting, educational partnerships, or just to say hi.
-         </p>
-         <div class="flex flex-wrap justify-center gap-8 italic">
-            <a href="mailto:contact@knowledgeorbit.com" class="group px-10 py-5 bg-primary-finance text-white font-bold rounded-full transition-all hover:scale-105 hover:bg-emerald-600 shadow-2xl shadow-emerald-500/20 italic">
-               Send Encrypted Signal (Email)
-            </a>
-            <a href="/lab" class="group px-10 py-5 bg-white/5 border border-primary-finance/30 text-primary-finance font-bold rounded-full transition-all hover:scale-105 hover:bg-primary-finance/10 italic">
-               Enter Research Lab (Finance Models)
-            </a>
-            <a href="/journal" class="group px-10 py-5 bg-white/5 border border-white/10 text-white font-bold rounded-full transition-all hover:scale-105 hover:bg-white/10 italic">
-               Open System Logs (Journal)
-            </a>
+            <span class="text-[10px] font-space tracking-[0.5em] text-primary-finance uppercase italic">Upcoming...</span>
          </div>
          
-         <div class="mt-32 grid grid-cols-2 md:grid-cols-4 gap-12 opacity-30 italic">
+         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 italic text-left">
+            <a href="/lab" class="group relative p-10 bg-black/40 backdrop-blur-2xl border border-white/5 hover:border-primary-finance/50 rounded-2xl transition-all hover:shadow-[0_0_50px_rgba(16,185,129,0.1)] block italic">
+               <h3 class="text-3xl font-bold font-space text-white mb-4 italic group-hover:text-primary-finance transition-colors">Projects & Labs</h3>
+               <p class="text-white/40 leading-relaxed italic mb-8">
+                  Interactive models, quantitative frameworks, and my technical project portfolio.
+               </p>
+               <span class="text-xs font-bold text-primary-finance uppercase tracking-widest flex items-center gap-2 italic">Explore Lab →</span>
+            </a>
+
+            <a href="/journal" class="group relative p-10 bg-black/40 backdrop-blur-2xl border border-white/5 hover:border-primary-edu/50 rounded-2xl transition-all hover:shadow-[0_0_50px_rgba(251,146,60,0.1)] block italic">
+               <h3 class="text-3xl font-bold font-space text-white mb-4 italic group-hover:text-primary-edu transition-colors">The Journal</h3>
+               <p class="text-white/40 leading-relaxed italic mb-8">
+                  System logs covering educational insights, financial literacy, and holistic growth.
+               </p>
+               <span class="text-xs font-bold text-primary-edu uppercase tracking-widest flex items-center gap-2 italic">Read Entries →</span>
+            </a>
+         </div>
+
+         <div class="border-t border-white/10 pt-16 mt-8 italic">
+            <h4 class="text-sm font-space tracking-[0.3em] text-white/40 uppercase mb-8 italic">Establish Contact</h4>
+            <div class="flex flex-wrap justify-center gap-6 md:gap-12 italic">
+               <a href="#" class="text-white/60 hover:text-white transition-colors text-sm uppercase tracking-widest font-bold italic">LinkedIn</a>
+               <a href="#" class="text-white/60 hover:text-white transition-colors text-sm uppercase tracking-widest font-bold italic">Instagram</a>
+               <a href="mailto:contact@knowledgeorbit.com" class="text-primary-finance hover:text-white transition-colors text-sm uppercase tracking-widest font-bold italic">Email Me</a>
+            </div>
+         </div>
+         
+         <div class="mt-32 grid grid-cols-2 md:grid-cols-4 gap-8 opacity-30 italic text-left md:text-center">
             <div class="flex flex-col gap-2 italic">
                <span class="text-[8px] uppercase tracking-widest italic font-bold">Stellar Location</span>
                <span class="text-xs font-space italic">Sector 7-G / Mumbai</span>
@@ -148,7 +158,7 @@ const experiences = [
             </div>
             <div class="flex flex-col gap-2 italic">
                <span class="text-[8px] uppercase tracking-widest italic font-bold">Status</span>
-               <span class="text-xs font-space italic uppercase italic">Awaiting Signal</span>
+               <span class="text-xs font-space italic uppercase italic text-primary-finance">Awaiting Signal</span>
             </div>
          </div>
       </div>

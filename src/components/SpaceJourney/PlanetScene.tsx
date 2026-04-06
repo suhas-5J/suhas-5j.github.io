@@ -109,31 +109,31 @@ export const PlanetScene: React.FC<{ experience: Experience }> = ({ experience }
       >
         <div className="w-full flex flex-col md:flex-row gap-12 items-end">
            <div className="flex-1 space-y-8">
-              <div className="space-y-4">
+               <div className="space-y-4">
                  <div className="flex items-center gap-4">
-                    <span className="text-primary-finance font-bold uppercase tracking-[0.4em] text-[10px] font-space italic">
+                    <span className="text-primary-finance font-bold uppercase tracking-[0.4em] text-[8px] md:text-[10px] font-space italic">
                        Identification: Orbit {experience.order}
                     </span>
                     <div className="h-[1px] flex-1 bg-white/10" />
                  </div>
-                 <h2 className="text-6xl md:text-8xl font-bold font-space leading-none tracking-tighter italic">
+                 <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold font-space leading-none tracking-tighter italic">
                     <GlitchText text={experience.title} />
                  </h2>
               </div>
 
-              <div className="grid grid-cols-2 gap-12 py-10 border-y border-white/5 italic">
+              <div className="grid grid-cols-2 gap-8 md:gap-12 py-8 md:py-10 border-y border-white/5 italic">
                  <div className="flex flex-col gap-1 italic">
                     <span className="text-[8px] text-white/30 uppercase tracking-widest italic font-bold">Log Organization</span>
-                    <span className="text-lg font-space italic text-white/80">{experience.company}</span>
+                    <span className="text-base md:text-lg font-space italic text-white/80">{experience.company}</span>
                  </div>
                  <div className="flex flex-col gap-1 italic">
                     <span className="text-[8px] text-white/30 uppercase tracking-widest italic font-bold">Stellar Period</span>
-                    <span className="text-lg font-space italic text-white/80">{experience.date}</span>
+                    <span className="text-base md:text-lg font-space italic text-white/80">{experience.date}</span>
                  </div>
               </div>
 
               <div className="relative italic">
-                 <p className="text-2xl md:text-3xl text-white/60 leading-[1.4] font-light italic">
+                 <p className="text-xl md:text-2xl lg:text-3xl text-white/60 leading-[1.4] font-light italic">
                     {experience.description}
                  </p>
               </div>

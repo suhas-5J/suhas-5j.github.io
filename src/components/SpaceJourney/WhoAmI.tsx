@@ -22,7 +22,7 @@ export const WhoAmI: React.FC = () => {
       >
         <motion.h1 
           style={{ letterSpacing }}
-          className="text-7xl md:text-[12rem] font-space font-bold text-white uppercase tracking-[0.5em] italic"
+          className="text-5xl md:text-[10rem] lg:text-[12rem] font-space font-bold text-white uppercase tracking-[0.5em] italic"
         >
           Who Am I?
         </motion.h1>
@@ -31,7 +31,7 @@ export const WhoAmI: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 0.4, 0] }}
           transition={{ duration: 4, repeat: Infinity }}
-          className="mt-16 text-[8px] font-space tracking-[1em] text-primary-finance uppercase italic"
+          className="mt-8 md:mt-16 text-[8px] font-space tracking-[1em] text-primary-finance uppercase italic"
         >
           Initiate Neural Link To Explore
         </motion.div>
