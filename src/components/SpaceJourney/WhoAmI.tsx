@@ -24,7 +24,7 @@ export const WhoAmI: React.FC = () => {
           style={{ letterSpacing }}
           className="text-5xl md:text-[10rem] lg:text-[12rem] font-space font-bold text-white uppercase tracking-[0.5em] italic"
         >
-          Who Am I?
+          Beyond The Numbers?
         </motion.h1>
         
         <motion.div 

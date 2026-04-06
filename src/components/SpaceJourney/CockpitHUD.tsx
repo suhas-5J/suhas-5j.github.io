@@ -103,7 +103,7 @@ export const CockpitHUD: React.FC = () => {
               <div className="flex items-center justify-between mb-6 pb-6 border-b border-white/5">
                 <div className="flex items-center gap-3">
                   <Radio className="w-4 h-4 text-primary-finance animate-pulse" />
-                  <span className="text-[10px] font-space tracking-[0.2em] text-white/60 uppercase">Telemetry</span>
+                  <span className="text-[10px] font-space tracking-[0.2em] text-white/60 uppercase">AUDIO</span>
                 </div>
                 <button 
                   onClick={() => setIsMuted(!isMuted)}
@@ -117,15 +117,15 @@ export const CockpitHUD: React.FC = () => {
               {/* Jump Points */}
               <div>
                 <h4 className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-4 flex items-center gap-2">
-                  <Zap className="w-3 h-3 text-primary-finance" /> Warp Destinations
+                  <Zap className="w-3 h-3 text-primary-finance" /> Destinations
                 </h4>
                 <div className="space-y-2">
                   {[
-                    "Mars - The Launch",
-                    "Earth - The Transition",
-                    "Venus - Modern Educator",
-                    "Mercury - Social Impact",
-                    "The Sun - Orbit Final"
+                    "Phase 1 - Marketing Executive Trainee",
+                    "Phase 2 - Finance Intern",
+                    "Phase 3 - Financial Modelling Analyst Intern",
+                    "Phase 4 - Accounts, Audit & Finance Executive",
+                    "Phase 5 - Associate Finance"
                   ].map((name, i) => (
                     <button 
                       key={i}
@@ -164,8 +164,8 @@ export const CockpitHUD: React.FC = () => {
         <div className="absolute bottom-8 left-8 right-8 md:left-12 md:right-12 hidden md:flex justify-between items-end">
            <div className="flex gap-16">
               <div className="flex flex-col">
-                 <span className="text-[8px] text-white/30 uppercase tracking-[0.3em] mb-1 font-bold">Current Sector</span>
-                 <span className="text-sm font-space text-white/80">SOLAR SYSTEM</span>
+                 <span className="text-[8px] text-white/30 uppercase tracking-[0.3em] mb-1 font-bold">Captain</span>
+                 <span className="text-sm font-space text-white/80">SUHAS JAWALE</span>
               </div>
               <div className="flex flex-col border-l border-white/10 pl-12">
                  <span className="text-[8px] text-white/30 uppercase tracking-[0.3em] mb-1 font-bold">Telemetry</span>

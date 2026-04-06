@@ -113,7 +113,7 @@ export const PlanetScene: React.FC<{ experience: Experience }> = ({ experience }
                <div className="space-y-4">
                  <div className="flex items-center gap-4">
                     <span className="text-primary-finance font-bold uppercase tracking-[0.4em] text-[8px] md:text-[10px] font-space italic">
-                       Identification: Orbit {experience.order}
+                       Profile {experience.order}
                     </span>
                     <div className="h-[1px] flex-1 bg-white/10" />
                  </div>
@@ -124,11 +124,11 @@ export const PlanetScene: React.FC<{ experience: Experience }> = ({ experience }
 
               <div className="grid grid-cols-2 gap-8 md:gap-12 py-8 md:py-10 border-y border-white/5 italic">
                  <div className="flex flex-col gap-1 italic">
-                    <span className="text-[8px] text-white/30 uppercase tracking-widest italic font-bold">Log Organization</span>
+                    <span className="text-[8px] text-white/30 uppercase tracking-widest italic font-bold">Organization</span>
                     <span className="text-base md:text-lg font-space italic text-white/80">{experience.company}</span>
                  </div>
                  <div className="flex flex-col gap-1 italic">
-                    <span className="text-[8px] text-white/30 uppercase tracking-widest italic font-bold">Stellar Period</span>
+                    <span className="text-[8px] text-white/30 uppercase tracking-widest italic font-bold">Timeline</span>
                     <span className="text-base md:text-lg font-space italic text-white/80">{experience.date}</span>
                  </div>
               </div>
@@ -144,7 +144,7 @@ export const PlanetScene: React.FC<{ experience: Experience }> = ({ experience }
            <div className="hidden md:flex flex-col gap-8 w-48 border-l border-white/5 pl-8 italic">
               <div className="space-y-2 italic">
                  <Globe className="w-4 h-4 text-primary-finance/60 italic" />
-                 <p className="text-[8px] uppercase tracking-widest text-white/30 italic font-bold">Position</p>
+                 <p className="text-[8px] uppercase tracking-widest text-white/30 italic font-bold">Location</p>
                  <p className="text-[10px] font-space text-white/60 italic">{experience.location}</p>
               </div>
               <div className="space-y-2 italic">
