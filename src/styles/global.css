@@ -9,9 +9,10 @@
 }
 
 @layer base {
-  body {
+  html, body {
     @apply bg-space-bg text-gray-100 font-sans selection:bg-primary-finance/30;
     overflow-x: hidden;
+    overscroll-behavior-y: none;
   }
 }
 

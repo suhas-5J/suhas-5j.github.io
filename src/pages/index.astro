@@ -11,120 +11,33 @@ import { JumpHandler } from '../components/SpaceJourney/JumpHandler';
 import { SwipeIndicator } from '../components/SpaceJourney/SwipeIndicator';
 
 const experiences = [
-  {
-    order: 1,
-    title: "Marketing Executive Trainee",
-    company: "SPACIM Pvt. Ltd.",
-    date: "06/2023 - 09/2023",
-    location: "Remote",
-    description: "Started the journey in marketing and achieved 100% conversion-to-enquiry rate per post.",
-    planetColor: "#c1440e", // Mars Red
-    planetTexture: "https://www.transparenttextures.com/patterns/sandpaper.png",
-    atmosphereColor: "#e77d11",
-    atmosphereTexture: "https://www.transparenttextures.com/patterns/stardust.png",
-    baseSpeed: "100s",
-    cloudSpeed: "60s",
-    cloudDirection: "reverse",
-    blendMode: "overlay",
-    type: "planet"
-  },
-  {
-    order: 2,
-    title: "Finance Intern",
-    company: "Aditya Birla Memorial Hospital",
-    date: "07/2023 - 08/2023",
-    location: "Pune, India",
-    description: "As an intern, I analyzed and processed payroll records for 100+ employees.",
-    planetColor: "#2b65ec", // Earth Blue
-    planetTexture: "https://www.transparenttextures.com/patterns/black-scales.png",
-    atmosphereColor: "#10b981", // Earth Green
-    atmosphereTexture: "https://www.transparenttextures.com/patterns/noisy-net.png",
-    baseSpeed: "150s",
-    cloudSpeed: "90s",
-    cloudDirection: "normal",
-    blendMode: "overlay",
-    type: "planet"
-  },
-  {
-    order: 3,
-    title: "Financial Modelling Analyst Intern",
-    company: "Financial Dessert Institution",
-    date: "11/2023 - 02/2024",
-    location: "Remote",
-    description: "Built a 5-year DCF model for a retail brand to identify the investment opportunities.",
-    planetColor: "#e6b041", // Venus Yellow/Orange
-    planetTexture: "https://www.transparenttextures.com/patterns/concrete-wall.png",
-    atmosphereColor: "#e68441",
-    atmosphereTexture: "https://www.transparenttextures.com/patterns/dust.png",
-    baseSpeed: "120s",
-    cloudSpeed: "80s",
-    cloudDirection: "reverse",
-    blendMode: "multiply",
-    type: "planet"
-  },
-  {
-    order: 4,
-    title: "Accounts, Audit & Finance Executive",
-    company: "DS Chhajed & Asscociates",
-    date: "05/2024 - 08/2024",
-    location: "Pune, India",
-    description: "Managed E2E GST compliance for the corporate and LLP clients with annual turnovers exceeding ₹1.5 crores.",
-    planetColor: "#888888", // Mercury Grey
-    planetTexture: "https://www.transparenttextures.com/patterns/rocky-wall.png",
-    atmosphereColor: "#555555",
-    atmosphereTexture: "https://www.transparenttextures.com/patterns/stardust.png",
-    baseSpeed: "80s",
-    cloudSpeed: "40s",
-    cloudDirection: "normal",
-    blendMode: "overlay",
-    type: "planet"
-  },
-  {
-    order: 5,
-    title: "Asscociate Finance",
-    company: "Addnode India",
-    date: "08/2024 - 04/2026",
-    location: "Pune, India",
-    description: "Managed and generated revenue from 40+ global high-value customers, and developed automated templates for real-time budget tracking.",
-    planetColor: "#ffcc00", // Sun Yellow
-    planetTexture: "https://www.transparenttextures.com/patterns/noisy-net.png",
-    atmosphereColor: "#ff9900", // Sun Orange
-    atmosphereTexture: "https://www.transparenttextures.com/patterns/stardust.png",
-    baseSpeed: "200s",
-    cloudSpeed: "100s",
-    cloudDirection: "reverse",
-    blendMode: "color-burn",
-    type: "planet"
-  }
+  { order: 1, title: "Marketing Executive Trainee", company: "SPACIM Pvt. Ltd.", date: "06/2023 - 09/2023", location: "Remote", description: "Started the journey in marketing and achieved 100% conversion-to-enquiry rate per post.", planetColor: "#c1440e", planetTexture: "https://www.transparenttextures.com/patterns/sandpaper.png", atmosphereColor: "#e77d11", atmosphereTexture: "https://www.transparenttextures.com/patterns/stardust.png", baseSpeed: "100s", cloudSpeed: "60s", cloudDirection: "reverse", blendMode: "overlay", type: "planet" },
+  { order: 2, title: "Finance Intern", company: "Aditya Birla Memorial Hospital", date: "07/2023 - 08/2023", location: "Pune, India", description: "As an intern, I analyzed and processed payroll records for 100+ employees.", planetColor: "#2b65ec", planetTexture: "https://www.transparenttextures.com/patterns/black-scales.png", atmosphereColor: "#10b981", atmosphereTexture: "https://www.transparenttextures.com/patterns/noisy-net.png", baseSpeed: "150s", cloudSpeed: "90s", cloudDirection: "normal", blendMode: "overlay", type: "planet" },
+  { order: 3, title: "Financial Modelling Analyst Intern", company: "Financial Dessert Institution", date: "11/2023 - 02/2024", location: "Remote", description: "Built a 5-year DCF model for a retail brand to identify the investment opportunities.", planetColor: "#e6b041", planetTexture: "https://www.transparenttextures.com/patterns/concrete-wall.png", atmosphereColor: "#e68441", atmosphereTexture: "https://www.transparenttextures.com/patterns/dust.png", baseSpeed: "120s", cloudSpeed: "80s", cloudDirection: "reverse", blendMode: "multiply", type: "planet" },
+  { order: 4, title: "Accounts, Audit & Finance Executive", company: "DS Chhajed & Asscociates", date: "05/2024 - 08/2024", location: "Pune, India", description: "Managed E2E GST compliance for the corporate and LLP clients with annual turnovers exceeding ₹1.5 crores.", planetColor: "#888888", planetTexture: "https://www.transparenttextures.com/patterns/rocky-wall.png", atmosphereColor: "#555555", atmosphereTexture: "https://www.transparenttextures.com/patterns/stardust.png", baseSpeed: "80s", cloudSpeed: "40s", cloudDirection: "normal", blendMode: "overlay", type: "planet" },
+  { order: 5, title: "Asscociate Finance", company: "Addnode India", date: "08/2024 - 04/2026", location: "Pune, India", description: "Managed and generated revenue from 40+ global high-value customers, and developed automated templates for real-time budget tracking.", planetColor: "#ffcc00", planetTexture: "https://www.transparenttextures.com/patterns/noisy-net.png", atmosphereColor: "#ff9900", atmosphereTexture: "https://www.transparenttextures.com/patterns/stardust.png", baseSpeed: "200s", cloudSpeed: "100s", cloudDirection: "reverse", blendMode: "color-burn", type: "planet" }
 ];
 ---
 
 <Layout title="Suhas Jawale | My Career Journey" hideNav={true}>
-  <!-- Premium Motion Controllers -->
   <ScrollSnapController client:load />
   <JumpHandler client:load />
   <SwipeIndicator client:load />
   
-  <!-- Immersive Background Layers -->
   <Starfield client:load />
   <MeteoriteField client:load />
   <div class="scanline" />
 
-  <!-- The Journey Container -->
   <div class="relative z-10 w-full overflow-x-hidden">
-    
-    <!-- Intro Phase -->
     <WhoAmI client:load />
 
-    <!-- Space Exploration Phase (Experiences) -->
     <div class="relative">
       {experiences.map((exp) => (
         <PlanetScene client:load experience={exp} />
       ))}
     </div>
 
-    <!-- Final Call to Action -->
-    <section class="min-h-screen flex items-center justify-center relative z-20 bg-black/90 backdrop-blur-3xl italic pb-32">
+    <section class="flex items-center justify-center relative z-20 bg-black/90 backdrop-blur-3xl italic py-32">
       <div class="text-center max-w-6xl px-8 w-full italic">
          <div class="inline-block px-6 py-2 bg-primary-finance/10 border border-primary-finance/30 rounded-full mb-12 animate-pulse italic">
             <span class="text-[10px] font-space tracking-[0.5em] text-primary-finance uppercase italic">Upcoming...</span>
@@ -173,53 +86,17 @@ const experiences = [
          </div>
       </div>
     </section>
-
   </div>
 
-    <footer class="relative z-[100] bg-black py-12 px-8 border-t border-white/5">
-       <DeveloperCredit client:load />
-    </footer>
+  <section class="relative z-50 bg-black py-12 px-8 border-t border-white/5">
+     <DeveloperCredit client:load />
+  </section>
 
-  </div>
-
-  <!-- Space Cockpit HUD (Fixed) -->
   <CockpitHUD client:load />
-
-
 </Layout>
 
 <style is:global>
-  /* Base reset for immersive experience */
-  body {
-    background-color: #000;
-    overflow-x: hidden;
-    cursor: crosshair;
-  }
-
-  /* Custom animations for the environment */
-  @keyframes moveLeft {
-    from { transform: translateX(0); opacity: 0.5; }
-    to { transform: translateX(-100vw); opacity: 0; }
-  }
-
-  @keyframes moveRight {
-    from { transform: translateX(0); opacity: 0.5; }
-    to { transform: translateX(100vw); opacity: 0; }
-  }
-
-  /* Text-shadow glow for the HUD */
-  .text-glow-emerald {
-    text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
-  }
-
-  @keyframes gradientFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  /* Apple-style smooth scrolling across the entire site */
-  html {
-    scroll-behavior: smooth;
-  }
+  body { background-color: #000; overflow-x: hidden; cursor: crosshair; }
+  .scanline { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03)); background-size: 100% 4px, 3px 100%; pointer-events: none; z-index: 100; opacity: 0.1; }
+  html { scroll-behavior: smooth; }
 </style>

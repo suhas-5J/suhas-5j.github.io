@@ -25,5 +25,5 @@ export const JumpHandler: React.FC = () => {
     }
   }, []);
 
-  return null;
+  return <></>;
 };

@@ -4,11 +4,9 @@ export const ScrollSnapController: React.FC = () => {
   const [activeSection, setActiveSection] = useState(0);
   const isLocked = useRef(false);
   const lastScrollTime = useRef(0);
+  const touchStart = useRef(0);
 
   useEffect(() => {
-    // Only enable on desktop/tablets (md breakpoint and up)
-    if (window.innerWidth < 768) return;
-
     const getDestinations = () => {
       const vh = window.innerHeight;
       return [
@@ -32,7 +30,7 @@ export const ScrollSnapController: React.FC = () => {
       setActiveSection(index);
 
       // Slower, smoother scroll
-      const duration = 1500; // Increased from default for smoother experience
+      const duration = 1200; // Adjusted for better mobile responsiveness
       const start = window.scrollY;
       const change = dests[index] - start;
       const startTime = performance.now();
@@ -53,7 +51,7 @@ export const ScrollSnapController: React.FC = () => {
         } else {
           setTimeout(() => {
             isLocked.current = false;
-          }, 200); // Small buffer
+          }, 150); 
         }
       };
 
@@ -64,11 +62,9 @@ export const ScrollSnapController: React.FC = () => {
       e.preventDefault();
 
       const now = Date.now();
-      // Increased cooldown and added higher threshold for jitter protection
-      if (isLocked.current || now - lastScrollTime.current < 1000) return;
+      if (isLocked.current || now - lastScrollTime.current < 800) return;
       
-      // Ignore small movements
-      if (Math.abs(e.deltaY) < 30) return;
+      if (Math.abs(e.deltaY) < 20) return;
 
       lastScrollTime.current = now;
 
@@ -76,6 +72,24 @@ export const ScrollSnapController: React.FC = () => {
         scrollToSection(activeSection + 1);
       } else {
         scrollToSection(activeSection - 1);
+      }
+    };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStart.current = e.touches[0].clientY;
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      if (isLocked.current) return;
+      const touchEnd = e.changedTouches[0].clientY;
+      const diff = touchStart.current - touchEnd;
+
+      if (Math.abs(diff) > 50) { // Threshold for swipe
+        if (diff > 0) {
+          scrollToSection(activeSection + 1);
+        } else {
+          scrollToSection(activeSection - 1);
+        }
       }
     };
 
@@ -91,14 +105,12 @@ export const ScrollSnapController: React.FC = () => {
       }
     };
 
-    // Update active section based on current scroll position if user manually scrolls or jumps
+    // Update active section based on current scroll position
     const handleScrollSync = () => {
       if (isLocked.current) return;
-      const vh = window.innerHeight;
       const scrollPos = window.scrollY;
       const dests = getDestinations();
       
-      // Find closest destination
       let closestIndex = 0;
       let minDiff = Math.abs(scrollPos - dests[0]);
       
@@ -116,15 +128,19 @@ export const ScrollSnapController: React.FC = () => {
     };
 
     window.addEventListener('wheel', handleWheel, { passive: false });
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchend', handleTouchEnd, { passive: true });
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('scroll', handleScrollSync);
 
     return () => {
       window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchend', handleTouchEnd);
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('scroll', handleScrollSync);
     };
   }, [activeSection]);
 
-  return null; // Headless controller
+  return <></>; 
 };

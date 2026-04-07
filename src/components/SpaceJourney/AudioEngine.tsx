@@ -56,5 +56,5 @@ export const AudioEngine: React.FC<{ isMuted: boolean; scrollVelocity: MotionVal
     }
   }, [isMuted, hasInteracted]);
 
-  return null;
+  return <></>;
 };
