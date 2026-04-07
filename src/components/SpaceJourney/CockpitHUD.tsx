@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Volume2, VolumeX, Zap, Radio, Activity, Compass, Menu, X } from 'lucide-react';
+import { Volume2, VolumeX, Zap, Radio, Activity, Compass, Menu, X, Navigation } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useVelocity, useSpring, useTransform } from 'framer-motion';
 import { AudioEngine } from './AudioEngine';
 
@@ -37,6 +37,12 @@ export const CockpitHUD: React.FC = () => {
   }, []);
 
   const jumpToPlanet = (index: number) => {
+    // If not on home page, return to home page first
+    if (window.location.pathname !== '/') {
+      window.location.href = `/?jump=${index}`;
+      return;
+    }
+
     const vh = window.innerHeight;
     const destination = vh * (1.75 + 2.5 * index);
 
@@ -46,6 +52,9 @@ export const CockpitHUD: React.FC = () => {
     });
     setShowMenu(false);
   };
+
+  const isHomePage = typeof window !== 'undefined' && window.location.pathname === '/';
+
 
   return (
     <motion.div 
@@ -113,6 +122,19 @@ export const CockpitHUD: React.FC = () => {
                   {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
                 </button>
               </div>
+
+              {/* Return to Cockpit (if not on home page) */}
+              {!isHomePage && (
+                <div className="mb-6 pb-6 border-b border-white/5">
+                  <a 
+                    href="/"
+                    className="w-full text-left py-3 px-4 text-xs font-space bg-primary-finance/20 hover:bg-primary-finance/30 text-primary-finance transition-colors rounded-lg flex items-center gap-3 border border-primary-finance/30"
+                  >
+                    <Navigation className="w-4 h-4" />
+                    Return to Cockpit
+                  </a>
+                </div>
+              )}
 
               {/* Jump Points */}
               <div>

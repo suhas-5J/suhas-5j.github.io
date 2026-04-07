@@ -1,6 +1,9 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import { Starfield } from '../../components/SpaceJourney/Starfield';
+import { MeteoriteField } from '../../components/SpaceJourney/MeteoriteField';
+import { CockpitHUD } from '../../components/SpaceJourney/CockpitHUD';
 import { ArrowLeft, BookOpen, Clock, Calendar } from 'lucide-react';
 
 export async function getStaticPaths() {
@@ -15,13 +18,17 @@ const post = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Layout title={`${post.data.title} | Knowledge Orbit`}>
-	<article class="py-24 bg-space-bg min-h-screen">
+<Layout title={`${post.data.title} | Knowledge Orbit`} hideNav={true}>
+	<Starfield client:load />
+	<MeteoriteField client:load />
+	<div class="scanline" />
+
+	<article class="py-32 bg-transparent relative z-10 min-h-screen">
 		<div class="container mx-auto px-6">
 			<div class="max-w-3xl mx-auto">
 				<a href="/journal" class="inline-flex items-center text-primary-edu hover:text-white mb-12 transition-colors font-bold group italic">
 					<ArrowLeft className="mr-2 w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-					Back to Journal
+					Return to Logs
 				</a>
 				
 				<header class="mb-16">
@@ -30,7 +37,7 @@ const { Content } = await render(post);
 						<span class="flex items-center"><Clock className="w-4 h-4 mr-2" /> 5 min read</span>
 						<span class="px-3 py-1 bg-primary-edu/10 text-primary-edu rounded-full text-xs font-bold uppercase tracking-widest italic">{post.data.category}</span>
 					</div>
-					<h1 class="text-4xl md:text-6xl font-bold font-space leading-tight italic">
+					<h1 class="text-4xl md:text-6xl font-bold font-space text-white leading-tight italic">
 						{post.data.title}
 					</h1>
 				</header>
@@ -39,15 +46,15 @@ const { Content } = await render(post);
 					<Content />
 				</div>
 				
-				<footer class="mt-24 pt-12 border-t border-space-border italic">
+				<footer class="mt-24 pt-12 border-t border-white/10 italic">
 					<div class="flex items-center justify-between italic">
 						<div class="flex items-center italic">
 							<div class="w-12 h-12 rounded-full bg-primary-edu/20 flex items-center justify-center mr-4 italic">
 								<BookOpen className="w-6 h-6 text-primary-edu" />
 							</div>
 							<div>
-								<p class="font-bold text-white italic">Suhas</p>
-								<p class="text-sm text-gray-500 italic">Finance Expert & Educator</p>
+								<p class="font-bold text-white italic">Suhas Jawale</p>
+								<p class="text-sm text-gray-500 italic uppercase tracking-tighter">Finance Expert & Educator</p>
 							</div>
 						</div>
 					</div>
@@ -55,6 +62,9 @@ const { Content } = await render(post);
 			</div>
 		</div>
 	</article>
+
+	<!-- Space Cockpit HUD (Fixed) -->
+	<CockpitHUD client:load />
 </Layout>
 
 <style is:global>

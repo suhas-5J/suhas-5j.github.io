@@ -1,6 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import { Starfield } from '../../components/SpaceJourney/Starfield';
+import { MeteoriteField } from '../../components/SpaceJourney/MeteoriteField';
+import { CockpitHUD } from '../../components/SpaceJourney/CockpitHUD';
 import { BookOpen } from 'lucide-react';
 
 const posts = (await getCollection('blog')).sort(
@@ -8,18 +11,29 @@ const posts = (await getCollection('blog')).sort(
 );
 ---
 
-<Layout title="The Journal | Knowledge Orbit">
-	<div class="py-24 bg-space-bg">
+<Layout title="The Journal | Knowledge Orbit" hideNav={true}>
+	<Starfield client:load />
+	<MeteoriteField client:load />
+	<div class="scanline" />
+
+	<div class="py-32 bg-transparent relative z-10 min-h-screen">
 		<div class="container mx-auto px-6">
 			<div class="max-w-4xl mx-auto">
-				<header class="mb-16">
-					<h1 class="text-5xl md:text-6xl font-bold font-space mb-6 italic">The Journal</h1>
-					<p class="text-xl text-gray-400 italic">Exploring the intersection of health, society, and growth.</p>
+				<header class="mb-16 italic">
+					<a href="/" class="text-primary-edu text-xs font-bold uppercase tracking-[0.4em] mb-4 inline-block hover:translate-x-[-10px] transition-transform italic">
+						← Back to Orbit
+					</a>
+					<h1 class="text-6xl md:text-8xl font-bold font-space text-white tracking-tighter italic">
+						System <span class="text-primary-edu italic">Logs</span>
+					</h1>
+					<p class="text-xl text-white/40 mt-8 italic max-w-2xl leading-relaxed">
+						Exploring the intersection of health, society, and personal growth through the lens of a finance expert.
+					</p>
 				</header>
 				
 				<div class="grid gap-12">
 					{posts.map((post) => (
-						<article class="group relative bg-space-card p-8 rounded-2xl border border-space-border hover:border-primary-edu transition-all italic">
+						<article class="group relative bg-black/40 backdrop-blur-2xl p-8 rounded-2xl border border-white/5 hover:border-primary-edu transition-all italic shadow-2xl">
 							<div class="flex flex-col md:flex-row gap-8">
 								<div class="md:w-1/4">
 									<div class="aspect-square bg-primary-edu/10 rounded-xl flex items-center justify-center italic">
@@ -31,14 +45,14 @@ const posts = (await getCollection('blog')).sort(
 										<span class="text-xs font-bold text-primary-edu uppercase tracking-widest italic">{post.data.category}</span>
 										<span class="text-gray-500 text-xs italic">{post.data.pubDate.toLocaleDateString()}</span>
 									</div>
-									<h2 class="text-3xl font-bold font-space group-hover:text-primary-edu transition-colors italic">
+									<h2 class="text-3xl font-bold font-space text-white group-hover:text-primary-edu transition-colors italic leading-tight">
 										<a href={`/journal/${post.id}`}>
 											{post.data.title}
 										</a>
 									</h2>
-									<p class="text-gray-400 mt-4 italic">{post.data.description}</p>
-									<a href={`/journal/${post.id}`} class="mt-6 text-primary-edu font-bold flex items-center italic">
-										Read Entry <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+									<p class="text-white/40 mt-4 italic">{post.data.description}</p>
+									<a href={`/journal/${post.id}`} class="mt-6 text-primary-edu font-bold flex items-center italic group-hover:gap-4 transition-all">
+										Retrieve Log <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
 									</a>
 								</div>
 							</div>
@@ -48,4 +62,7 @@ const posts = (await getCollection('blog')).sort(
 			</div>
 		</div>
 	</div>
+
+	<!-- Space Cockpit HUD (Fixed) -->
+	<CockpitHUD client:load />
 </Layout>

@@ -1,11 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Starfield } from '../components/SpaceJourney/Starfield';
+import { MeteoriteField } from '../components/SpaceJourney/MeteoriteField';
+import { CockpitHUD } from '../components/SpaceJourney/CockpitHUD';
 import { TrendingUp, Cpu, MessageSquare, ArrowRight, Zap, Target } from 'lucide-react';
 ---
 
-<Layout title="The Lab | Finance & Tech Models">
+<Layout title="Projects | Finance & Tech Models" hideNav={true}>
    <Starfield client:load />
+   <MeteoriteField client:load />
    <div class="scanline" />
 
    <div class="relative z-10 py-32 min-h-screen">
@@ -15,7 +18,7 @@ import { TrendingUp, Cpu, MessageSquare, ArrowRight, Zap, Target } from 'lucide-
                ← Back to Orbit
             </a>
             <h1 class="text-6xl md:text-8xl font-bold font-space text-white tracking-tighter italic">
-               The Research <span class="text-primary-finance italic">Lab</span>
+               Research <span class="text-primary-finance italic">Projects</span>
             </h1>
             <p class="text-2xl text-white/40 mt-8 italic max-w-2xl leading-relaxed">
                Where high-finance meets technical precision. Exploring interactive models for ROI, risk, and algorithmic strategies.
@@ -76,6 +79,9 @@ import { TrendingUp, Cpu, MessageSquare, ArrowRight, Zap, Target } from 'lucide-
          </div>
       </div>
    </div>
+
+   <!-- Space Cockpit HUD (Fixed) -->
+   <CockpitHUD client:load />
 </Layout>
 
 <style is:global>
