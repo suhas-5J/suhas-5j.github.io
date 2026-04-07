@@ -5,6 +5,7 @@ import { MeteoriteField } from '../components/SpaceJourney/MeteoriteField';
 import { CockpitHUD } from '../components/SpaceJourney/CockpitHUD';
 import { WhoAmI } from '../components/SpaceJourney/WhoAmI';
 import { PlanetScene } from '../components/SpaceJourney/PlanetScene';
+import { DeveloperCredit } from '../components/SpaceJourney/DeveloperCredit';
 
 const experiences = [
   {
@@ -164,13 +165,8 @@ const experiences = [
          </div>
 
          {/* Dedicated Developer Spotlight */}
-         <div class="mt-24 pt-8 border-t border-white/5 flex flex-col items-center justify-center w-full">
-            <p class="text-xs font-space text-white/40 tracking-widest uppercase italic flex items-center gap-2">
-               Developed by 
-               <a href="https://github.com/VILJkid" target="_blank" class="text-xs font-space italic uppercase tracking-widest font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-[length:200%_auto] animate-[gradientFlow_3s_linear_infinite] text-transparent bg-clip-text hover:opacity-80 transition-all">
-                  VILJkid
-               </a>
-            </p>
+         <div class="mt-24 pt-8 border-t border-white/5 w-full">
+            <DeveloperCredit client:load />
          </div>
       </div>
     </section>
