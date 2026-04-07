@@ -29,11 +29,11 @@ export const WhoAmI: React.FC = () => {
         
         <motion.div 
           initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0.4, 0] }}
+          animate={{ opacity: [0, 0.6, 0] }}
           transition={{ duration: 4, repeat: Infinity }}
-          className="mt-8 md:mt-16 text-[8px] font-space tracking-[1em] text-primary-finance uppercase italic"
+          className="mt-8 md:mt-16 text-xs md:text-sm font-space tracking-[0.5em] text-primary-finance uppercase italic"
         >
-          Initiate Neural Link To Explore
+          Please turn on audio for a better experience
         </motion.div>
       </motion.div>
 

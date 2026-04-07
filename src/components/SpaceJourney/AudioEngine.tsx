@@ -9,6 +9,23 @@ export const AudioEngine: React.FC<{ isMuted: boolean; scrollVelocity: MotionVal
   const [hasInteracted, setHasInteracted] = useState(false);
 
   useEffect(() => {
+    if (!musicRef.current) {
+      musicRef.current = new Audio(SPACE_MUSIC);
+      musicRef.current.loop = true;
+      musicRef.current.volume = 0; // Fade in
+    }
+
+    // Attempt aggressive autoplay immediately on mount
+    if (!hasInteracted && !isMuted) {
+      musicRef.current.play().then(() => {
+        setHasInteracted(true);
+      }).catch((err) => {
+        console.warn("Autoplay blocked by browser. Waiting for user interaction...", err);
+      });
+    }
+  }, []);
+
+  useEffect(() => {
     // Initialize audio on first interaction to bypass browser blocks
     const handleFirstInteraction = () => {
       if (!hasInteracted) {
@@ -18,12 +35,12 @@ export const AudioEngine: React.FC<{ isMuted: boolean; scrollVelocity: MotionVal
       }
     };
 
-    window.addEventListener('scroll', handleFirstInteraction, { once: true });
+    window.addEventListener('keydown', handleFirstInteraction, { once: true });
     window.addEventListener('click', handleFirstInteraction, { once: true });
     window.addEventListener('touchstart', handleFirstInteraction, { once: true });
 
     return () => {
-      window.removeEventListener('scroll', handleFirstInteraction);
+      window.removeEventListener('keydown', handleFirstInteraction);
       window.removeEventListener('click', handleFirstInteraction);
       window.removeEventListener('touchstart', handleFirstInteraction);
     };
