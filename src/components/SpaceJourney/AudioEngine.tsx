@@ -9,56 +9,50 @@ export const AudioEngine: React.FC<{ isMuted: boolean; scrollVelocity: MotionVal
   const [hasInteracted, setHasInteracted] = useState(false);
 
   useEffect(() => {
+    // Initialize audio elements
     if (!musicRef.current) {
       musicRef.current = new Audio(SPACE_MUSIC);
       musicRef.current.loop = true;
-      musicRef.current.volume = 0; // Fade in
+      musicRef.current.volume = 0.4;
     }
 
-    // Attempt aggressive autoplay immediately on mount
-    if (!hasInteracted && !isMuted) {
-      musicRef.current.play().then(() => {
-        setHasInteracted(true);
-      }).catch((err) => {
-        console.warn("Autoplay blocked by browser. Waiting for user interaction...", err);
-      });
-    }
-  }, []);
-
-  useEffect(() => {
-    // Initialize audio on first interaction to bypass browser blocks
-    const handleFirstInteraction = () => {
-      if (!hasInteracted) {
-        setHasInteracted(true);
-        // We just need the interaction, we don't necessarily play here
-        // The second useEffect handles the actual play state
+    const startAudio = () => {
+      if (musicRef.current && !isMuted && !hasInteracted) {
+        musicRef.current.play()
+          .then(() => {
+            setHasInteracted(true);
+            console.log("Audio started successfully via user interaction.");
+          })
+          .catch(err => console.warn("Audio play failed:", err));
       }
     };
 
-    window.addEventListener('keydown', handleFirstInteraction, { once: true });
-    window.addEventListener('click', handleFirstInteraction, { once: true });
-    window.addEventListener('touchstart', handleFirstInteraction, { once: true });
+    // Attempt immediate play (might work if user has visited before)
+    musicRef.current.play()
+      .then(() => setHasInteracted(true))
+      .catch(() => {
+        // Fallback: listen for any meaningful interaction
+        window.addEventListener('click', startAudio, { once: true });
+        window.addEventListener('keydown', startAudio, { once: true });
+        window.addEventListener('touchstart', startAudio, { once: true });
+        window.addEventListener('mousedown', startAudio, { once: true });
+      });
 
     return () => {
-      window.removeEventListener('keydown', handleFirstInteraction);
-      window.removeEventListener('click', handleFirstInteraction);
-      window.removeEventListener('touchstart', handleFirstInteraction);
+      window.removeEventListener('click', startAudio);
+      window.removeEventListener('keydown', startAudio);
+      window.removeEventListener('touchstart', startAudio);
+      window.removeEventListener('mousedown', startAudio);
     };
-  }, [hasInteracted]);
+  }, [isMuted, hasInteracted]);
 
   useEffect(() => {
-    if (!musicRef.current) {
-      musicRef.current = new Audio(SPACE_MUSIC);
-      musicRef.current.loop = true;
-      musicRef.current.volume = 0; // Fade in
-    }
+    if (!musicRef.current) return;
 
-    if (isMuted || !hasInteracted) {
+    if (isMuted) {
       musicRef.current.pause();
-    } else {
-      musicRef.current.play().then(() => {
-        musicRef.current!.volume = 0.4;
-      }).catch(console.error);
+    } else if (hasInteracted) {
+      musicRef.current.play().catch(console.error);
     }
   }, [isMuted, hasInteracted]);
 

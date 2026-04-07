@@ -38,7 +38,7 @@ export const CockpitHUD: React.FC = () => {
 
   const jumpToPlanet = (index: number) => {
     const vh = window.innerHeight;
-    const destination = vh * (1.80 + 2.5 * index);
+    const destination = vh * (1.75 + 2.5 * index);
 
     window.scrollTo({
       top: destination,

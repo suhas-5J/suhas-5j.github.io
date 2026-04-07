@@ -6,6 +6,7 @@ import { CockpitHUD } from '../components/SpaceJourney/CockpitHUD';
 import { WhoAmI } from '../components/SpaceJourney/WhoAmI';
 import { PlanetScene } from '../components/SpaceJourney/PlanetScene';
 import { DeveloperCredit } from '../components/SpaceJourney/DeveloperCredit';
+import { ScrollSnapController } from '../components/SpaceJourney/ScrollSnapController';
 
 const experiences = [
   {
@@ -97,6 +98,9 @@ const experiences = [
 ---
 
 <Layout title="Suhas Jawale | My Career Journey" hideNav={true}>
+  <!-- Premium Motion Controllers -->
+  <ScrollSnapController client:load />
+  
   <!-- Immersive Background Layers -->
   <Starfield client:load />
   <MeteoriteField client:load />
