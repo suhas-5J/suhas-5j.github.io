@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useMotionValueEvent, type MotionValue } from 'framer-motion';
+import { type MotionValue } from 'framer-motion';
 
 // Interstellar-inspired theme music
 const SPACE_MUSIC = "/audio/interstellar-inspired-music.mp3";

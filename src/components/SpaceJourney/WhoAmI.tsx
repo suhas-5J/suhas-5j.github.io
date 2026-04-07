@@ -10,7 +10,7 @@ export const WhoAmI: React.FC = () => {
 
   const opacity = useTransform(smoothProgress, [0, 0.4, 0.6], [1, 1, 0]);
   const scale = useTransform(smoothProgress, [0, 0.5], [1, 0.9]);
-  const letterSpacing = useTransform(smoothProgress, [0, 0.5], ["0.5em", "2.5em"]);
+  const letterSpacing = useTransform(smoothProgress, [0, 0.5], ["0.1em", "0.5em"]);
   const blur = useTransform(smoothProgress, [0, 0.5], ["blur(0px)", "blur(10px)"]);
   const frameOpacity = useTransform(smoothProgress, [0.4, 0.8], [0, 0.05]);
 
@@ -22,7 +22,7 @@ export const WhoAmI: React.FC = () => {
       >
         <motion.h1 
           style={{ letterSpacing }}
-          className="text-5xl md:text-[10rem] lg:text-[12rem] font-space font-bold text-white uppercase tracking-[0.5em] italic"
+          className="text-4xl md:text-7xl lg:text-[7rem] font-space font-bold text-white uppercase italic"
         >
           Beyond The Numbers?
         </motion.h1>

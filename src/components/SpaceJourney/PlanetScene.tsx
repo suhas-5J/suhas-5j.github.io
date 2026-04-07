@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { GlitchText } from './GlitchText';
-import { Briefcase, Calendar, Building, MapPin, Globe, ShieldCheck, TrendingUp } from 'lucide-react';
+import { Globe, ShieldCheck } from 'lucide-react';
 
 interface Experience {
   title: string;

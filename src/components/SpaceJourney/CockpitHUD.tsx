@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Volume2, VolumeX, Navigation, Zap, Target, Radio, Activity, Compass, Menu, X } from 'lucide-react';
+import { Volume2, VolumeX, Zap, Radio, Activity, Compass, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useVelocity, useSpring, useTransform } from 'framer-motion';
 import { AudioEngine } from './AudioEngine';
 
@@ -97,7 +97,7 @@ export const CockpitHUD: React.FC = () => {
               initial={{ opacity: 0, scale: 0.95, y: -20, filter: "blur(10px)" }}
               animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
               exit={{ opacity: 0, scale: 0.95, y: -20, filter: "blur(10px)" }}
-              className="absolute top-20 right-6 md:top-24 md:right-8 w-64 md:w-72 bg-black/80 backdrop-blur-3xl border border-white/10 p-6 pointer-events-auto rounded-2xl shadow-2xl shadow-primary-finance/5"
+              className="absolute top-20 right-6 md:top-24 md:right-8 w-[85vw] max-w-sm md:w-[30rem] bg-black/80 backdrop-blur-3xl border border-white/10 p-6 pointer-events-auto rounded-2xl shadow-2xl shadow-primary-finance/5"
             >
               {/* Audio Controls */}
               <div className="flex items-center justify-between mb-6 pb-6 border-b border-white/5">
@@ -132,7 +132,7 @@ export const CockpitHUD: React.FC = () => {
                       onClick={() => jumpToPlanet(i)}
                       className="w-full text-left py-3 px-4 text-xs font-space bg-white/5 hover:bg-primary-finance/10 text-white/80 hover:text-primary-finance transition-colors rounded-lg flex items-center justify-between border border-transparent hover:border-primary-finance/30"
                     >
-                      <span className="truncate">{name}</span>
+                      <span className="whitespace-normal leading-tight">{name}</span>
                       <span className="text-[8px] opacity-40 font-bold ml-2 shrink-0">0{i+1}</span>
                     </button>
                   ))}
@@ -166,10 +166,6 @@ export const CockpitHUD: React.FC = () => {
               <div className="flex flex-col">
                  <span className="text-[8px] text-white/30 uppercase tracking-[0.3em] mb-1 font-bold">Captain</span>
                  <span className="text-sm font-space text-white/80">SUHAS JAWALE</span>
-              </div>
-              <div className="flex flex-col border-l border-white/10 pl-12">
-                 <span className="text-[8px] text-white/30 uppercase tracking-[0.3em] mb-1 font-bold">Telemetry</span>
-                 <span className="text-xs font-space text-white/60 tracking-tighter">HD: 142.32 | VT: 09.11 | RZ: 88.00</span>
               </div>
            </div>
            
