@@ -1,43 +1,46 @@
-# Astro Starter Kit: Minimal
+# The Knowledge Orbit: An Interstellar Odyssey
 
-```sh
-npm create astro@latest -- --template minimal
-```
+A high-performance, immersive portfolio journey built with **Astro**, **React**, and **Framer Motion**. Designed for a premium, first-person storytelling experience through a stylized solar system.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚀 The Experience
+- **1st-Person Space Flight:** A cinematic journey where you pilot a vessel from the outer reaches of the solar system (Mars) toward the Sun.
+- **Premium Motion Engine:** Apple-style, physics-based snap-scroll mechanics that ensure a smooth, weighted, and high-fidelity transition between career milestones.
+- **High-Tech Cockpit HUD:** A functional holographic interface featuring "Nitrous" warp jumps, real-time telemetry, and integrated audio controls.
+- **Cinematic Soundscape:** Features an Interstellar-inspired theme that dynamically responds to user interaction and scroll velocity.
+- **Sub-Space Research:** Unified immersive themes across dedicated Research Projects and System Logs (Journal) sections.
 
-## 🚀 Project Structure
+## 🛠️ Tech Stack
+- **Framework:** Astro 5.0 (Content Layer API)
+- **UI Logic:** React + Framer Motion
+- **Styling:** Tailwind CSS 4.0
+- **Content:** MDX (Markdown for the 21st Century)
+- **Icons:** Lucide React
+- **Graphics:** HTML5 Canvas (Starfields) + Advanced CSS Blending (Planetary rendering)
 
-Inside of your Astro project, you'll see the following folders and files:
-
+## 📁 Project Structure
 ```text
 /
-├── public/
+├── public/          # Static assets (Audio, Textures)
 ├── src/
-│   └── pages/
-│       └── index.astro
+│   ├── components/  # Immersive UI & Space Engine components
+│   ├── content/     # MDX Journal entries
+│   ├── layouts/     # Base immersive layout
+│   ├── pages/       # System routes (Odyssey, Projects, Journal)
+│   └── styles/      # Global sci-fi styling & glitch animations
+├── astro.config.mjs
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
 ## 🧞 Commands
+| Command | Action |
+| :--- | :--- |
+| `npm install` | Installs dependencies |
+| `npm run dev` | Starts local cockpit at `localhost:4321` |
+| `npm run build` | Compiles the odyssey for production |
+| `npm run preview` | Previews the build locally |
 
-All commands are run from the root of the project, from a terminal:
+## 🛰️ Deployment
+The project is configured for automated deployment via **GitHub Actions**. Any push to the `main` branch will trigger a build and publish the latest version of the orbit to GitHub Pages.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
+**Developed by [VILJkid](https://github.com/VILJkid)**
