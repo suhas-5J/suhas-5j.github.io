@@ -16,7 +16,9 @@ export const ScrollSnapController: React.FC = () => {
         vh * 6.75,              // Planet 3
         vh * 9.25,              // Planet 4
         vh * 11.75,             // Planet 5
-        vh * 13.5               // Final CTA
+        vh * 13.5,              // Upcoming / Projects & Journal
+        vh * 14.5,              // Let's Connect
+        vh * 15.5               // Developer Credit
       ];
     };
 

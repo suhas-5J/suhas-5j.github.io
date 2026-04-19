@@ -8,6 +8,7 @@ export const CockpitHUD: React.FC = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isSystemOnline, setIsSystemOnline] = useState(false);
+  const [isHudVisible, setIsHudVisible] = useState(false);
 
   const { scrollYProgress } = useScroll();
   const scrollVelocity = useVelocity(scrollYProgress);
@@ -17,10 +18,22 @@ export const CockpitHUD: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100 && !isSystemOnline) {
-        setIsSystemOnline(true);
+      const scrollY = window.scrollY;
+      const vh = window.innerHeight;
+      
+      const pastIntro = scrollY > 100;
+      const beforeEnd = scrollY < (vh * 15.0); // Last section is at 15.5 vh
+      
+      if (pastIntro && beforeEnd) {
+        setIsHudVisible(true);
+        if (!isSystemOnline) setIsSystemOnline(true);
+      } else {
+        setIsHudVisible(false);
       }
     };
+    
+    handleScroll();
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isSystemOnline]);
@@ -59,7 +72,7 @@ export const CockpitHUD: React.FC = () => {
   return (
     <motion.div 
       initial={{ opacity: 0 }}
-      animate={{ opacity: isSystemOnline ? 1 : 0 }}
+      animate={{ opacity: isHudVisible ? 1 : 0 }}
       className="fixed inset-0 z-50 pointer-events-none"
       style={{
         transform: `translate(${mousePos.x * -0.5}px, ${mousePos.y * -0.5}px)`
@@ -167,9 +180,9 @@ export const CockpitHUD: React.FC = () => {
         {/* Side Telemetry - Clean Minimalist (Hidden on smaller screens) */}
         <div className="absolute left-8 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-12">
            <div className="flex flex-col gap-2">
-              <span className="text-[8px] uppercase tracking-widest text-white/40 font-bold">Inertia</span>
-              <Activity className="w-5 h-5 text-primary-finance/60" />
-              <div className="h-24 w-[1px] bg-white/10 relative">
+              <span className="text-[10px] uppercase tracking-widest text-white/40 font-bold">Inertia</span>
+              <Activity className="w-6 h-6 text-primary-finance/60" />
+              <div className="h-32 w-[1px] bg-white/10 relative ml-3">
                  <motion.div 
                    style={{ height: inertiaHeight }}
                    className="absolute top-0 w-full bg-primary-finance"
@@ -177,8 +190,8 @@ export const CockpitHUD: React.FC = () => {
               </div>
            </div>
            <div className="flex flex-col gap-2">
-              <span className="text-[8px] uppercase tracking-widest text-white/40 font-bold">Orientation</span>
-              <Compass className="w-5 h-5 text-primary-finance/60" />
+              <span className="text-[10px] uppercase tracking-widest text-white/40 font-bold">Orientation</span>
+              <Compass className="w-6 h-6 text-primary-finance/60" />
            </div>
         </div>
 
@@ -186,20 +199,20 @@ export const CockpitHUD: React.FC = () => {
         <div className="absolute bottom-8 left-8 right-8 md:left-12 md:right-12 hidden md:flex justify-between items-end">
            <div className="flex gap-16">
               <div className="flex flex-col">
-                 <span className="text-[8px] text-white/30 uppercase tracking-[0.3em] mb-1 font-bold">Captain</span>
-                 <span className="text-sm font-space text-white/80">SUHAS JAWALE</span>
+                 <span className="text-[10px] text-white/30 uppercase tracking-[0.3em] mb-1 font-bold">Captain</span>
+                 <span className="text-base font-space text-white/80">SUHAS JAWALE</span>
               </div>
            </div>
            
            <div className="text-right flex flex-col items-end">
-              <span className="text-[8px] text-white/30 uppercase tracking-[0.3em] mb-1 font-bold">Engine Status</span>
+              <span className="text-[10px] text-white/30 uppercase tracking-[0.3em] mb-2 font-bold">Engine Status</span>
               <div className="flex gap-1">
                  {[...Array(12)].map((_, i) => (
                    <motion.div 
                      key={i}
                      animate={{ opacity: [0.2, 0.5, 0.2] }}
                      transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.1 }}
-                     className="w-1 h-3 bg-primary-finance"
+                     className="w-1 h-4 bg-primary-finance"
                    />
                  ))}
               </div>

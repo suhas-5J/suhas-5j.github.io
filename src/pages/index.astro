@@ -9,6 +9,7 @@ import { DeveloperCredit } from '../components/SpaceJourney/DeveloperCredit';
 import { ScrollSnapController } from '../components/SpaceJourney/ScrollSnapController';
 import { JumpHandler } from '../components/SpaceJourney/JumpHandler';
 import { SwipeIndicator } from '../components/SpaceJourney/SwipeIndicator';
+import { SocialLinks } from '../components/SpaceJourney/SocialLinks';
 
 const experiences = [
   { order: 1, title: "Marketing Executive Trainee", company: "SPACIM Pvt. Ltd.", date: "06/2023 - 09/2023", location: "Remote", description: "Started the journey in marketing and achieved 100% conversion-to-enquiry rate per post.", planetColor: "#c1440e", planetTexture: "https://www.transparenttextures.com/patterns/sandpaper.png", atmosphereColor: "#e77d11", atmosphereTexture: "https://www.transparenttextures.com/patterns/stardust.png", baseSpeed: "100s", cloudSpeed: "60s", cloudDirection: "reverse", blendMode: "overlay", type: "planet" },
@@ -37,13 +38,13 @@ const experiences = [
       ))}
     </div>
 
-    <section class="flex items-center justify-center relative z-20 bg-black/90 backdrop-blur-3xl italic py-32">
+    <section class="h-screen flex items-center justify-center relative z-20 bg-black/90 backdrop-blur-3xl italic">
       <div class="text-center max-w-6xl px-8 w-full italic">
-         <div class="inline-block px-6 py-2 bg-primary-finance/10 border border-primary-finance/30 rounded-full mb-12 animate-pulse italic">
-            <span class="text-[10px] font-space tracking-[0.5em] text-primary-finance uppercase italic">Upcoming...</span>
+         <div class="inline-block px-8 py-3 bg-primary-finance/10 border border-primary-finance/30 rounded-full mb-12 animate-pulse italic">
+            <span class="text-xs md:text-sm font-space tracking-[0.5em] text-primary-finance uppercase italic">Upcoming...</span>
          </div>
          
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 italic text-left">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 italic text-left">
             <a href="/projects" class="group relative p-10 bg-black/40 backdrop-blur-2xl border border-white/5 hover:border-primary-finance/50 rounded-2xl transition-all hover:shadow-[0_0_50px_rgba(16,185,129,0.1)] block italic">
                <h3 class="text-3xl font-bold font-space text-white mb-4 italic group-hover:text-primary-finance transition-colors">Projects</h3>
                <p class="text-white/40 leading-relaxed italic mb-8">
@@ -60,36 +61,37 @@ const experiences = [
                <span class="text-xs font-bold text-primary-edu uppercase tracking-widest flex items-center gap-2 italic">Read Entries →</span>
             </a>
          </div>
+      </div>
+    </section>
 
-         <div class="border-t border-white/10 pt-16 mt-8 italic">
-            <h4 class="text-sm font-space tracking-[0.3em] text-white/40 uppercase mb-8 italic">Let's Connect</h4>
-            <div class="flex flex-wrap justify-center gap-6 md:gap-12 italic">
-               <a href="https://www.linkedin.com/in/suhas-jawale/" target="_blank" class="text-white/60 hover:text-white transition-colors text-sm uppercase tracking-widest font-bold italic">LinkedIn</a>
-               <a href="https://www.instagram.com/suhas_v_jawale/" target="_blank" class="text-white/60 hover:text-white transition-colors text-sm uppercase tracking-widest font-bold italic">Instagram</a>
-               <a href="mailto:suhas.jawale50@gmail.com" target="_blank" class="text-primary-finance hover:text-white transition-colors text-sm uppercase tracking-widest font-bold italic">Email Me</a>
-            </div>
-         </div>
+    <section class="h-screen flex items-center justify-center relative z-20 bg-black/90 backdrop-blur-3xl italic border-t border-white/5">
+      <div class="text-center max-w-6xl px-8 w-full italic">
+         <h4 class="text-2xl md:text-4xl font-space tracking-[0.3em] text-white/40 uppercase mb-16 italic">Let's Connect</h4>
+         <SocialLinks client:load />
          
-         <div class="mt-32 grid grid-cols-1 md:grid-cols-3 gap-8 opacity-30 italic text-left md:text-center">
+         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 opacity-40 italic text-left md:text-center">
             <div class="flex flex-col gap-2 italic">
-               <span class="text-[8px] uppercase tracking-widest italic font-bold">Stellar Location</span>
-               <span class="text-xs font-space italic">Pune / India</span>
+               <span class="text-[10px] uppercase tracking-widest italic font-bold">Stellar Location</span>
+               <span class="text-sm md:text-base font-space italic">Pune / India</span>
             </div>
             <div class="flex flex-col gap-2 italic">
-               <span class="text-[8px] uppercase tracking-widest italic font-bold">Vessel Type</span>
-               <span class="text-xs font-space italic">Portfolio v0.1</span>
+               <span class="text-[10px] uppercase tracking-widest italic font-bold">Vessel Type</span>
+               <span class="text-sm md:text-base font-space italic">Portfolio v0.1</span>
             </div>
             <div class="flex flex-col gap-2 italic">
-               <span class="text-[8px] uppercase tracking-widest italic font-bold">Pilot</span>
-               <span class="text-xs font-space italic">Suhas-5j</span>
+               <span class="text-[10px] uppercase tracking-widest italic font-bold">Pilot</span>
+               <span class="text-sm md:text-base font-space italic">Suhas-5j</span>
             </div>
          </div>
       </div>
     </section>
+
   </div>
 
-  <section class="relative z-50 bg-black py-24 px-8 border-t border-white/5">
-     <DeveloperCredit client:load />
+  <section class="h-screen flex items-center justify-center relative z-50 bg-black border-t border-white/5">
+     <div class="w-full max-w-4xl mx-auto px-8">
+        <DeveloperCredit client:load />
+     </div>
   </section>
 
   <CockpitHUD client:load />

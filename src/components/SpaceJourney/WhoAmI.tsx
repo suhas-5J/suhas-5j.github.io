@@ -29,8 +29,8 @@ export const WhoAmI: React.FC = () => {
         
         <motion.div 
           initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0.8, 0] }}
-          transition={{ duration: 4, repeat: Infinity }}
+          animate={{ opacity: [0, 1, 0] }}
+          transition={{ duration: 8, repeat: Infinity }}
           className="mt-12 md:mt-20 text-sm md:text-lg font-space tracking-[0.3em] text-primary-finance uppercase italic max-w-2xl mx-auto leading-relaxed"
         >
           Please click anywhere or press a key to initialize audio & start experience
