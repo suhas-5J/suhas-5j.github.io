@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* Hide scrollbar for Firefox */
+html, body {
+  scrollbar-width: none; 
+}
+/* Hide scrollbar for Chrome, Safari, and Edge */
+::-webkit-scrollbar {
+  display: none; 
+}
+
 @theme {
   --color-primary-finance: #10b981; /* Emerald 500 */
   --color-primary-edu: #fb923c; /* Orange 400 - more vibrant than terracotta for dark mode */

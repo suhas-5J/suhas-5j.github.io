@@ -4,7 +4,7 @@ import { type MotionValue } from 'framer-motion';
 // Interstellar-inspired theme music
 const SPACE_MUSIC = "/audio/interstellar-inspired-music.mp3";
 
-export const AudioEngine: React.FC<{ isMuted: boolean; scrollVelocity: MotionValue<number> }> = ({ isMuted, scrollVelocity }) => {
+export const AudioEngine: React.FC<{ isMuted: boolean; volume: number; scrollVelocity: MotionValue<number> }> = ({ isMuted, volume, scrollVelocity }) => {
   const musicRef = useRef<HTMLAudioElement | null>(null);
   const [hasInteracted, setHasInteracted] = useState(false);
 
@@ -13,7 +13,7 @@ export const AudioEngine: React.FC<{ isMuted: boolean; scrollVelocity: MotionVal
     if (!musicRef.current) {
       musicRef.current = new Audio(SPACE_MUSIC);
       musicRef.current.loop = true;
-      musicRef.current.volume = 0.4;
+      musicRef.current.volume = volume;
     }
 
     const startAudio = () => {
@@ -52,9 +52,10 @@ export const AudioEngine: React.FC<{ isMuted: boolean; scrollVelocity: MotionVal
     if (isMuted) {
       musicRef.current.pause();
     } else if (hasInteracted) {
+      musicRef.current.volume = volume;
       musicRef.current.play().catch(console.error);
     }
-  }, [isMuted, hasInteracted]);
+  }, [isMuted, volume, hasInteracted]);
 
   return <></>;
 };

@@ -35,7 +35,7 @@ export const DeveloperCredit: React.FC = () => {
   const currentWord = WORDS[index];
 
   return (
-    <div className="flex items-center justify-center gap-2 text-sm md:text-base font-space text-white/50 tracking-widest uppercase italic">
+    <div className="flex items-center justify-center gap-2 text-lg md:text-base font-space text-white/50 tracking-widest uppercase italic">
       <div className="relative whitespace-nowrap">
         <span className={isGlitching ? "opacity-0" : "opacity-100"}>
           {currentWord}
@@ -59,7 +59,7 @@ export const DeveloperCredit: React.FC = () => {
       <a 
         href="https://github.com/VILJkid" 
         target="_blank" 
-        className="text-sm md:text-base font-space italic uppercase tracking-widest font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-[length:200%_auto] animate-[gradientFlow_3s_linear_infinite] text-transparent bg-clip-text hover:opacity-80 transition-all"
+        className="text-lg md:text-base font-space italic uppercase tracking-widest font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-[length:200%_auto] animate-[gradientFlow_3s_linear_infinite] text-transparent bg-clip-text hover:opacity-80 transition-all"
       >
         VILJkid
       </a>

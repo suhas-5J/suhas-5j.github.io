@@ -113,7 +113,7 @@ export const PlanetScene: React.FC<{ experience: Experience }> = ({ experience }
                <div className="space-y-4">
                  <div className="flex items-center gap-4">
                     <span className="text-primary-finance font-bold uppercase tracking-[0.4em] text-[10px] md:text-xs font-space italic">
-                       Profile {experience.order}
+                       Phase {experience.order}
                     </span>
                     <div className="h-[1px] flex-1 bg-white/10" />
                  </div>
